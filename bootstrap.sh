@@ -34,4 +34,7 @@ install 'ExecJS runtime' nodejs
 # Needed for docs generation.
 update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
+echo install heroku toolbelt
+wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
 echo 'all set, rock on!'
