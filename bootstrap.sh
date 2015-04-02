@@ -37,4 +37,8 @@ update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
 echo install heroku toolbelt
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
+echo cleanup
+apt-get -y autoremove
+apt-get clean
+
 echo 'all set, rock on!'
