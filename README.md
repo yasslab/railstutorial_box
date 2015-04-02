@@ -16,7 +16,22 @@ end
 
 ## Vagrantのパッケージをつくる
 
+ホストOS
+
 ```console
 $ vagrant up
+```
+
+ゲストOS
+
+```
+$ wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub -O ~/.ssh/authorized_keys
+$ sudo vi /etc/ssh/ssh_config
+UseDNS no
+```
+
+ホストOS
+
+```
 $ vagrant package -o railstutorial.box
 ```
