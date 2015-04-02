@@ -1,0 +1,18 @@
+sudo su -
+sudo apt-get install linux-headers-generic build-essential dkms -y
+sudo mount /dev/cdrom /media/cdrom
+cd /media/cdrom/
+sudo ./VBoxLinuxAdditions.run 
+sudo reboot
+ls /media/cdrom/
+sudo su -
+sudo -u postgres createuser --superuser vagrant
+cat .bash_history 
+sudo su -
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+sudo su -
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+echo 'eval "$(rbenv init -)"' >> ~/.bash_profile 
+sudo /etc/init.d/vboxadd setup
+sudo reboot
+sudo su -

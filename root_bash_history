@@ -1,0 +1,31 @@
+apt-get update
+apt-get upgrade
+visudo
+passwd
+cd /home/vagrant
+mkdir .ssh
+wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub -O .ssh/authorized_keys
+chmod 700 .ssh
+chmod 600 .ssh/authorized_keys 
+chown -R vagrant:vagrant .ssh
+cd /etc/ssh
+pico sshd_config 
+service ssh restart
+exit
+apt-get -y update
+apt-get upgrade
+apt-get install git sqlite3 libsqlite3-dev postgresql postgresql-contrib libpq-dev libxml2 libxml2-dev libxslt1-dev nodejs
+update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
+cat .bash_history .
+wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+apt-get install emacs vim
+apt-get install -y autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+apt-get install -y libreadline-dev zlib1g-dev libssl-dev
+apt-get autoremove
+apt-get clean
+cd /tmp/
+ls -l
+dd if=/dev/zero of=/tmp/ZERO bs=1M
+ls -l
+rm /tmp/ZERO 
+sudo shutdown -h now
