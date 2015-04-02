@@ -30,8 +30,6 @@ install RabbitMQ rabbitmq-server
 
 install PostgreSQL postgresql postgresql-contrib libpq-dev
 sudo -u postgres createuser --superuser vagrant
-sudo -u postgres createdb -O vagrant activerecord_unittest
-sudo -u postgres createdb -O vagrant activerecord_unittest2
 
 install 'Nokogiri dependencies' libxml2 libxml2-dev libxslt1-dev
 install 'ExecJS runtime' nodejs
