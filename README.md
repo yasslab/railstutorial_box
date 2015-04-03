@@ -31,5 +31,5 @@ $ wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.p
 ホストOS
 
 ```
-$ vagrant package -o railstutorial.box
+$ vagrant package --base 'railstutorial_box' -o railstutorial.box
 ```

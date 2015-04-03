@@ -10,17 +10,9 @@ function install {
 }
 
 echo updating package information
-apt-add-repository -y ppa:brightbox/ruby-ng >/dev/null 2>&1
 apt-get -y update >/dev/null 2>&1
 
 install 'development tools' build-essential
-
-install Ruby ruby2.0 ruby2.0-dev
-update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby1.9.1 0 --slave /usr/bin/gem gem /usr/bin/gem1.9.1 >/dev/null 2>&1
-update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby2.0   1 --slave /usr/bin/gem gem /usr/bin/gem2.0   >/dev/null 2>&1
-
-echo installing Bundler
-gem install bundler -N >/dev/null 2>&1
 
 install Git git
 install SQLite sqlite3 libsqlite3-dev
@@ -36,6 +28,25 @@ update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 echo install heroku toolbelt
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+echo installing rbenv
+cd /home/vagrant
+sudo -u vagrant git clone https://github.com/sstephenson/rbenv.git /home/vagrant/.rbenv >/dev/null 2>&1
+sudo -u vagrant echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> /home/vagrant/.bash_profile
+sudo -u vagrant echo 'eval "$(rbenv init -)"' >> /home/vagrant/.bash_profile
+
+install ruby-build autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+sudo -u vagrant git clone https://github.com/sstephenson/ruby-build.git /home/vagrant/.rbenv/plugins/ruby-build >/dev/null 2>&1
+
+echo installing ruby 2.0.0-p643
+sudo -u vagrant -H -i rbenv install 2.0.0-p643 >/dev/null 2>&1
+sudo -u vagrant -H -i rbenv global 2.0.0-p643 >/dev/null 2>&1
+
+echo installing Bundler
+sudo -u vagrant -H -i gem install bundler -N >/dev/null 2>&1
+
+echo installing Rails 4.0.5
+sudo -u vagrant -H -i gem install rails -N -v '4.0.5' >/dev/null 2>&1
 
 echo cleanup
 apt-get -y autoremove
