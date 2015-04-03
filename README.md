@@ -26,8 +26,6 @@ $ vagrant up
 
 ```
 $ wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub -O ~/.ssh/authorized_keys
-$ sudo vi /etc/ssh/ssh_config
-UseDNS no
 ```
 
 ホストOS
