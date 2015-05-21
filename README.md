@@ -8,7 +8,7 @@ https://github.com/rails/rails-dev-box
 
 ```rb
 Vagrant.configure(2) do |config|
-  config.vm.box = "YassLab/railstutorial32"
+  config.vm.box = "YassLab/railstutorial4.0-32"
   config.vm.network "forwarded_port", guest: 3000, host: 3000
   config.vm.synced_folder "./data", "/vagrant_data"
 end
