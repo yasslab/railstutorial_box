@@ -38,15 +38,15 @@ sudo -u vagrant echo 'eval "$(rbenv init -)"' >> /home/vagrant/.bash_profile
 install ruby-build autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
 sudo -u vagrant git clone https://github.com/sstephenson/ruby-build.git /home/vagrant/.rbenv/plugins/ruby-build >/dev/null 2>&1
 
-echo installing ruby 2.0.0-p643
-sudo -u vagrant -H -i rbenv install 2.0.0-p643 >/dev/null 2>&1
-sudo -u vagrant -H -i rbenv global 2.0.0-p643 >/dev/null 2>&1
+echo installing ruby 2.4.2
+sudo -u vagrant -H -i rbenv install 2.4.2 >/dev/null 2>&1
+sudo -u vagrant -H -i rbenv global 2.4.2 >/dev/null 2>&1
 
 echo installing Bundler
 sudo -u vagrant -H -i gem install bundler -N >/dev/null 2>&1
 
 echo installing Rails 4.0.5
-sudo -u vagrant -H -i gem install rails -N -v '4.0.5' >/dev/null 2>&1
+sudo -u vagrant -H -i gem install rails -N -v '5.1.2' >/dev/null 2>&1
 
 echo cleanup
 apt-get -y autoremove
